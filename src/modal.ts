@@ -1,4 +1,4 @@
-import { throw_exception } from "./exception";
+import { throw_exception } from "./utils/exception";
 
 const modal = document.querySelector(".modal") ?? throw_exception("Could not get modal");
 const overlay = document.querySelector(".overlay") ?? throw_exception("Could not get overlay");

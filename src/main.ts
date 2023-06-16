@@ -1,4 +1,4 @@
-import { throw_exception } from "./exception";
+import { throw_exception } from "./utils/exception";
 import { Maze, create_maze } from "./maze/maze";
 import { initialize_canvas } from "./draw";
 

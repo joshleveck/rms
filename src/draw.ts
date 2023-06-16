@@ -1,5 +1,5 @@
-import { COLOURS } from "./colours";
-import { Direction } from "./directions";
+import { COLOURS } from "./utils/colours";
+import { Direction } from "./utils/directions";
 
 const MAZE_SIZE = 576;
 const SQUARE_SIZE = 36;
@@ -12,7 +12,7 @@ export const initialize_canvas = (ctx: any): void => {
     for (let i = 0; i < 16; i++) {
         for (let j = 0; j < 16; j++) {
             for (let dir = 0; dir < 4; dir++) {
-                draw_border(ctx, i * 36, j * 36, dir, COLOURS.RED);
+                draw_border(ctx, i * 36, j * 36, dir, COLOURS.EDGES);
             }
         }
     }

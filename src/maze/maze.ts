@@ -1,4 +1,4 @@
-import { Direction } from "../directions";
+import { Direction } from "../utils/directions";
 
 
 interface Cell {
