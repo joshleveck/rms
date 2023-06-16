@@ -1,3 +1,4 @@
+import { throw_exception } from "./exception";
 import { Maze, create_maze } from "./maze/maze";
 import { initialize_canvas } from "./draw";
 
@@ -6,10 +7,6 @@ interface State {
   canvas: HTMLCanvasElement;
   ctx: CanvasRenderingContext2D;
 }
-
-const throw_exception = (message: string): never => {
-  throw new Error(message);
-};
 
 let state: State = {
   maze: create_maze(),
