@@ -1,9 +1,5 @@
-enum Direction {
-  North = 0,
-  East = 1,
-  South = 2,
-  West = 3,
-}
+import { Direction } from "../directions";
+
 
 interface Cell {
   colour: number, // hex number
@@ -27,10 +23,10 @@ export interface Maze {
 }
 
 export const create_maze = (): Maze => {
-  var cells: Cell[][] = [];
-  for (var i = 0; i < 16; i++) {
+  let cells: Cell[][] = [];
+  for (let i = 0; i < 16; i++) {
     cells[i] = [];
-    for (var j = 0; j < 16; j++) {
+    for (let j = 0; j < 16; j++) {
       cells[i][j] = create_cell(i, j);
       if (i === 0) {
         cells[i][j].walls.push(Direction.West);
