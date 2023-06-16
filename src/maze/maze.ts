@@ -1,4 +1,4 @@
-enum Directions {
+enum Direction {
   North = 0,
   East = 1,
   South = 2,
@@ -9,23 +9,49 @@ interface Cell {
   colour: number, // hex number
   x: number,
   y: number,
-  walls: Directions[],
+  walls: Direction[],
 }
 
-interface Maze {
+const create_cell = (x: number, y: number): Cell => {
+  return {
+    colour: 0,
+    x,
+    y,
+    walls: [],
+  };
+}
+
+
+export interface Maze {
   cells: Cell[][],
 }
 
-const create_maze = (): Maze => {
-  var cells = Array<Cell[]>(16).fill(Array<Cell>(16).fill({ colour: 0, x: 0, y: 0, walls: [] }));
-
+export const create_maze = (): Maze => {
+  var cells: Cell[][] = [];
   for (var i = 0; i < 16; i++) {
-    cells[i][0].walls.push(Directions.South);
-    cells[i][15].walls.push(Directions.North);
-    cells[0][i].walls.push(Directions.West);
-    cells[15][i].walls.push(Directions.East);
+    cells[i] = [];
+    for (var j = 0; j < 16; j++) {
+      cells[i][j] = create_cell(i, j);
+      if (i === 0) {
+        cells[i][j].walls.push(Direction.West);
+      }
+      if (i === 15) {
+        cells[i][j].walls.push(Direction.East);
+      }
+      if (j === 0) {
+        cells[i][j].walls.push(Direction.South);
+      }
+      if (j === 15) {
+        cells[i][j].walls.push(Direction.North);
+      }
+    }
   }
+
   return {
     cells,
   };
+}
+
+const draw_maze = (maze: Maze, ctx: any): void => {
+
 }

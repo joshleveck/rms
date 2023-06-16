@@ -14,19 +14,23 @@
 
       <div class="row">
         <div class="canvas">
-          <canvas id="maze" width="80%"></canvas>
+          <canvas id="maze" width="500" height="500"></canvas>
         </div>
         <div class="info">
-          <div class="info-top">
-            <div class="contols">
-              <h2>Controls</h2>
+          <div class="controls">
+            <h2>Controls</h2>
+            <div class="actions">
+              <button>Build</button>
+              <button>Run</button>
             </div>
             <div class="config">
-              <h2>Config</h2>
+              <p><b>Mouse:</b> Not Selected</p>
+              <button>Config</button>
             </div>
           </div>
           <div class="output">
             <h2>Output</h2>
+            <textarea id="output" readonly></textarea>
           </div>
         </div>
       </div>
