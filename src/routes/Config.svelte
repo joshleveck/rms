@@ -1,7 +1,7 @@
 <script>
   import Button from "./Button.svelte";
+  import { toggleConfig } from "./modal.ts"
   
-  export let openConfig;
   let mouse = "Mouse";
 </script>
 
@@ -11,7 +11,7 @@
     <p>Mouse: {mouse}</p>
     <Button
       name="✏️"
-      handleClick={openConfig}
+      handleClick={toggleConfig}
       style="margin-left: 10px; margin-top: 12px; padding: 3px 5px 4px 5px"
     />
   </div>
