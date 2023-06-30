@@ -1,7 +1,8 @@
 <script>
-  import Button from "./Button.svelte";
+  import AddModal from "./AddModal.svelte";
+import Button from "./Button.svelte";
   import ConfigTable from "./ConfigTable.svelte";
-  import { isConfigOpen, toggleConfig } from "./modal";
+  import { isConfigOpen, toggleAdd, toggleConfig } from "./modal";
 </script>
 
 <section class={$isConfigOpen ? "open" : "closed"}>
@@ -15,7 +16,7 @@
           style="background-color: transparent; color: #fff;"
         />
       </div>
-      <Button handleClick={() => {}} name="Add" />
+      <Button handleClick={toggleAdd} name="Add" />
       <ConfigTable />
       <div class="saveButton">
         <Button
@@ -27,3 +28,5 @@
     </div>
   </div>
 </section>
+
+<AddModal />

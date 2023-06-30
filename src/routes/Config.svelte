@@ -1,6 +1,6 @@
 <script>
   import Button from "./Button.svelte";
-  import { toggleConfig } from "./modal.ts"
+  import { toggleConfig } from "./modal"
   
   let mouse = "Mouse";
 </script>
