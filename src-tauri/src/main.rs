@@ -1,19 +1,26 @@
 // Prevents additional console window on Windows in release, DO NOT REMOVE!!
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
+use std::sync::Mutex;
+
+mod config_handler;
 mod runner;
 mod storage;
-mod config_handler;
+mod state;
 
-// Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
-#[tauri::command]
-fn greet(name: &str) -> String {
-    format!("Hello, {}! You've been greeted from Rust!", name)
-}
+
 
 fn main() {
     tauri::Builder::default()
-        .invoke_handler(tauri::generate_handler![greet])
+        .manage(state::State {
+            runner: Mutex::new(runner::Runner::new()),
+        })
+        .invoke_handler(tauri::generate_handler![
+            runner::build,
+            runner::run,
+            runner::pause,
+            runner::cancel
+        ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }

@@ -23,7 +23,7 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"svelte-canvas": "^0.9.3",
-		"svelte-modals": "^1.2.1"
+		"@tauri-apps/api": "^1.4.0",
+		"svelte-canvas": "^0.9.3"
 	}
 }
